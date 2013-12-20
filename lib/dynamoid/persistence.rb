@@ -132,6 +132,9 @@ module Dynamoid
         end
       end
 
+      def destroy_all
+        all.each(&:destroy)
+      end
     end
 
     # Set updated_at and any passed in field to current DateTime. Useful for things like last_login_at, etc.

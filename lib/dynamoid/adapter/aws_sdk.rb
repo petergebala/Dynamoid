@@ -38,7 +38,7 @@ module Dynamoid
       # dynamo_db_endpoint : dynamodb.ap-southeast-1.amazonaws.com)
       # @since 0.2.0
       def connect!
-      @@connection = AWS::DynamoDB.new
+        @@connection = AWS::DynamoDB.new
       end
 
       # Return the established connection.

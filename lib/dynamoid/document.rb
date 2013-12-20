@@ -32,6 +32,18 @@ module Dynamoid #:nodoc:
         super if defined? super
       end
 
+      # Returns defined keys in model
+      #
+      # @since 0.7.2
+      def key_names
+        attributes.keys
+      end
+
+      # To keep similar interface as in AR
+      #
+      # @since 0.7.2
+      alias :column_name :key_names
+
       def attr_readonly(*read_only_attributes)
         self.read_only_attributes.concat read_only_attributes.map(&:to_s)
       end

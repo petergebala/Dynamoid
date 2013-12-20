@@ -31,6 +31,21 @@ module Dynamoid
         end
       end
 
+      # Find one or many objects, specified by one id or an array of ids.
+      #
+      # @param [Array/String] *id an array of ids or one single id
+      #
+      # @return [Dynamoid::Document] one object or an array of objects, depending on whether the input was an array or not. If result is an empty array or nil, then raises RecordNotFound exception.
+      #
+      # @since 0.7.2
+      def find!(*ids)
+        result = find(ids)
+
+        unless result.present?
+          raise RecordNotFound, ids
+        end
+      end
+
       # Return objects found by the given array of ids, either hash keys, or hash/range key combinations using BatchGet.
       # Returns empty array if no results found.
       #
