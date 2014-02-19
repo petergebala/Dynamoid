@@ -44,6 +44,8 @@ module Dynamoid
         unless result.present?
           raise RecordNotFound, ids
         end
+
+        result
       end
 
       # Return objects found by the given array of ids, either hash keys, or hash/range key combinations using BatchGet.
